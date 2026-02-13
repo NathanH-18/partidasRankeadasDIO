@@ -1,0 +1,35 @@
+let userRank;
+let userVictories;
+
+function calcularSaldo(vitorias, derrotas) {
+  return vitorias - derrotas;
+}
+
+function definirRank(saldo) {
+  switch (true) {
+    case (saldo >= 1 && saldo <= 9):
+      return "Ferro";
+    case (saldo >= 10 && saldo <= 19):
+      return "Bronze";
+    case (saldo >= 20 && saldo <= 49):
+      return "Prata";
+    case (saldo >= 50 && saldo <= 79):
+      return "Ouro";
+    case (saldo >= 80 && saldo <= 89):
+      return "Diamante";
+    case (saldo >= 90 && saldo <= 99):
+      return "Lendário";
+    case (saldo >= 100):
+      return "Imortal";
+    default:
+      return "Sem Ranking";
+  }
+}
+
+const vitorias = 75;
+const derrotas = 10;
+
+userVictories = calcularSaldo(vitorias, derrotas);
+userRank = definirRank(userVictories);
+
+console.log(`O Jogador tem um saldo de: ${userVictories} vitórias, e está no Ranking: ${userRank}`);
